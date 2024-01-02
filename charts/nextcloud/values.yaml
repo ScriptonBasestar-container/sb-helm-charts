@@ -232,6 +232,7 @@ persistence:
   additionalAnnotations: {}
   nextcloudData:
     # existingClaim:
+    usePvc: true
     # mountPath: /var/www/html/data
     mountPath: /nextcloud/data
     hostPath:
@@ -239,6 +240,7 @@ persistence:
       path: /work/nextcloud/data
   nextcloudCustomApps:
     # existingClaim:
+    usePvc: true
     # mountPath: /var/www/html/custom_apps
     mountPath: /nextcloud/custom_apps
     hostPath:

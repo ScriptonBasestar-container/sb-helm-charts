@@ -227,9 +227,9 @@ spec:
             type: Directory
         {{- else }}
         - name: nextcloud-custom-apps
-          {{- if .Values.persistence.nextcloudCustomApps.enabled }}
+          {{- if .Values.persistence.nextcloudCustomApps.usePvc }}
           persistentVolumeClaim:
-            claimName: {{ if .Values.persistence.nextcloudCustomApps.existingClaim }}{{ .Values.persistence.nextcloudCustomApps.existingClaim }}{{- else }}{{ template "nextcloud.fullname" . }}-nextcloud-custom-apps{{- end }}
+            claimName: {{ if .Values.persistence.nextcloudCustomApps.existingClaim }}{{ .Values.persistence.nextcloudCustomApps.existingClaim }}{{- else }}{{ template "nextcloud.fullname" . }}-custom-apps{{- end }}
           {{- else }}
           emptyDir: {}
           {{- end }}
@@ -247,9 +247,9 @@ spec:
             type: Directory
         {{- else }}
         - name: nextcloud-data
-          {{- if .Values.persistence.nextcloudData.enabled }}
+          {{- if .Values.persistence.nextcloudData.usePvc }}
           persistentVolumeClaim:
-            claimName: {{ if .Values.persistence.nextcloudData.existingClaim }}{{ .Values.persistence.nextcloudData.existingClaim }}{{- else }}{{ template "nextcloud.fullname" . }}-nextcloud-data{{- end }}
+            claimName: {{ if .Values.persistence.nextcloudData.existingClaim }}{{ .Values.persistence.nextcloudData.existingClaim }}{{- else }}{{ template "nextcloud.fullname" . }}-data{{- end }}
           {{- else }}
           emptyDir: {}
           {{- end }}
