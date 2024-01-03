@@ -52,7 +52,6 @@ chartsrepo/
 .cr-index/
 website/
 pub/
-readme.md
 
 # deploy
 *.tgz
