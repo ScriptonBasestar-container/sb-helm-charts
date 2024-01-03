@@ -1,0 +1,14 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: {{ template "nextcloud.fullname" . }}-config-busyscript
+  labels:
+    app.kubernetes.io/name: {{ include "nextcloud.name" . }}
+    helm.sh/chart: {{ include "nextcloud.chart" . }}
+    app.kubernetes.io/instance: {{ .Release.Name }}
+    app.kubernetes.io/managed-by: {{ .Release.Service }}
+data:
+  entrypoint.sh: |-
+    #!/bin/bash
+    chown -R 33:33 $PATH1 $PATH2
+    chmod 0770 $PATH1 $PATH2
